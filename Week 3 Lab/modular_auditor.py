@@ -41,7 +41,7 @@ def main():
         if quantity == "quit":
             break
 
-        total_inventory += process_delivery(total_inventory, quantity)
+        total_inventory = process_delivery(total_inventory, quantity)
         tax = calculate_tax(quantity)
 
         print(f"Accepted. Current total inventory: {total_inventory}.")
