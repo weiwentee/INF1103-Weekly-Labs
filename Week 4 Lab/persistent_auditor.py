@@ -1,55 +1,101 @@
-def calculate_tax(amount):
-    return amount * 0.10
+inventory_file = "inventory.txt"
 
-def get_valid_input():
-    entry = input("Enter stock quantity (or 'quit' to finish): ").strip()
+def load_inventory():
+    """Reads existing orders from file. Returns an empty list if file doesn't exist."""
+    orders = []
+    try:
+        with open(inventory_file, "r") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                order_id, name, qty = line.split(",")
+                orders.append({
+                    "id": int(order_id),
+                    "name": name,
+                    "qty": int(qty)
+                })
+    except FileNotFoundError:
+        pass
+    return orders
 
-    if entry.lower() == "quit":
+def save_inventory(orders):
+    """Writes all orders to file, one per line."""
+    with open(inventory_file, "w") as f:
+        for order in orders:
+            f.write(f"{order['id']}, {order['name']}, {order['qty']}\n")
+
+def get_product_name():
+    name = input("Enter Product Name (or 'quit' to finish): ").strip()
+
+    if name.lower() == "quit":
         return "quit"
 
-    if not entry.isdigit():
-        print(f"Error: '{entry}' is not a valid number. Entry rejected.")
+    if not name:
+        print("Error: Product name cannot be empty. Entry rejected.")
         return None
 
-    quantity = int(entry)
+    if "," in name:
+        print("Error: Product name cannot contain commas. Entry rejected.")
+        return None
+
+    return name
+
+def get_quantity():
+    entry = input("Enter Quantity: ").strip()
+
+    try:
+        quantity = int(entry)
+    except ValueError:
+        print(f"Error: '{entry}' is not a valid number. Entry rejected.")
+        return None
 
     if quantity < 0:
         print(f"Error: {quantity} is negative. Entry rejected.")
         return None
-    
+
     return quantity
 
-def generate_report(total_units, failed_attempts):
-    print("\n--- Audit Report ---")
-    print(f"Total Deliveries Processed: {total_units}")
-    print(f"Number of Failed/Rejected Entries: {failed_attempts}")
+def get_next_id(orders):
+    if not orders:
+        return 1001
+    return max(order["id"] for order in orders) + 1
 
-def process_delivery(current_total, new_value):
-    return current_total + new_value
+def display_orders(orders):
+    print("Current Orders:\n")
+    for order in orders:
+        print(f"{order['id']}, {order['name']}, {order['qty']}")
 
 def main():
-    total_inventory = 0
-    deliveries = 0
+    orders = load_inventory()
     failed_entries = 0
 
-    while True:
-        quantity = get_valid_input()
+    display_orders(orders)
 
+    while True:
+        print()
+        name = get_product_name()
+
+        if name == "quit":
+            break
+
+        if name is None:
+            failed_entries += 1
+            continue
+
+        quantity = get_quantity()
         if quantity is None:
             failed_entries += 1
             continue
 
-        if quantity == "quit":
-            break
+        new_id = get_next_id(orders)
+        orders.append({"id": new_id, "name": name, "qty": quantity})
 
-        total_inventory = process_delivery(total_inventory, quantity)
-        deliveries += 1
-        tax = calculate_tax(quantity)
+        print(f"\nNew Order Added:\n{new_id}, {name}, {quantity}")
 
-        print(f"Accepted. Current total inventory: {total_inventory}.")
-        print(f"Tax for this entry: {tax:.2f}")
-
-    generate_report(deliveries, failed_entries)
+        save_inventory(orders)
+        print(f"\nOrder successfully saved to {inventory_file}")
+        print(f"\nNumber of Failed/Rejected Entries: {failed_entries}")
 
 if __name__ == "__main__":
     main()
