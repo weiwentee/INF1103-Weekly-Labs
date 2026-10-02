@@ -2,7 +2,7 @@
     {
         "id": "P001",
         "name": "Laptop",
-        "quantity": 15,
+        "quantity": 20,
         "price": 1200.0
     },
     {
@@ -22,5 +22,11 @@
         "name": "Monitor",
         "quantity": 10,
         "price": 299.99
+    },
+    {
+        "id": "P005",
+        "name": "Speaker",
+        "quantity": 55,
+        "price": 85.0
     }
 ]
