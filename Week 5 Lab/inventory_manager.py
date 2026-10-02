@@ -1,3 +1,6 @@
+import json
+
+
 def add_product():
     """
     Add New Product
@@ -73,25 +76,31 @@ def display_all():
         print(f"ID: {product['id']} | Name: {product['name']} | Price: ${product['price']:.2f} | Stock: {product['quantity']}")
     print("-------------------")
 
+def load_inventory():
+    """
+    Load inventory from a JSON file.
+    """
+    try:
+        with open("inventory.json", "r") as file:
+            inventory.extend(json.load(file))
+        print("\ninventory.json found.")
+        print("Inventory loaded successfully.")
+    except FileNotFoundError:
+        print("inventory.json not found. Starting with an empty inventory.")
 
 if __name__ == "__main__":
-    inventory = [
-        {"id": "P001", "name": "Laptop", "quantity": 15, "price": 1200.00},
-        {"id": "P002", "name": "Mouse", "quantity": 40, "price": 25.50},
-        {"id": "P003", "name": "Keyboard", "quantity": 25, "price": 45.00},
-    ]
-
+    inventory = []
     print("\n================================")
     print("INVENTORY MANAGEMENT SYSTEM")
     print("================================")
+    load_inventory()
     
     print("\n----------MENU----------")
     print("1. Display All Products")
     print("2. Add Product")
     print("3. Update Stock")
     print("4. Search Product")
-    print("5. Save Inventory")
-    print("6. Exit")
+    print("5. Exit")
     print("------------------------")
 
     while True:
