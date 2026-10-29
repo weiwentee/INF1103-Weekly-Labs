@@ -28,5 +28,11 @@
         "name": "Speaker",
         "quantity": 55,
         "price": 85.0
+    },
+    {
+        "id": "P006",
+        "name": "Trackpad",
+        "quantity": 37,
+        "price": 10.0
     }
 ]
