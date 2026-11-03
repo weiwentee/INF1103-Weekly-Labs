@@ -1,0 +1,58 @@
+[
+    {
+        "id": "P001",
+        "name": "Laptop",
+        "quantity": 20,
+        "price": 1200.0,
+        "type": "physical",
+        "weight": 2.2
+    },
+    {
+        "id": "P002",
+        "name": "Mouse",
+        "quantity": 50,
+        "price": 25.5,
+        "type": "physical",
+        "weight": 0.1
+    },
+    {
+        "id": "P003",
+        "name": "Guitar",
+        "quantity": 8,
+        "price": 350.0,
+        "type": "physical",
+        "weight": 3.5
+    },
+    {
+        "id": "D001",
+        "name": "Operating System",
+        "quantity": 100,
+        "price": 199.0,
+        "type": "digital",
+        "download_size": 4500.0
+    },
+    {
+        "id": "D002",
+        "name": "Photo Editor",
+        "quantity": 250,
+        "price": 59.99,
+        "type": "digital",
+        "download_size": 850.0
+    },
+    {
+        "id": "P010",
+        "name": "Amplifier",
+        "quantity": 3,
+        "price": 499.0,
+        "type": "physical",
+        "weight": 12.5
+    },
+    {
+        "id": "D010",
+        "name": "Game",
+        "quantity": 1000,
+        "price": 69.9,
+        "type": "digital",
+        "download_size": 32000.0
+    }
+]
