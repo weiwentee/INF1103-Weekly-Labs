@@ -1,0 +1,37 @@
+commit 47d15343153938d7daa61ba35e3fee573d6286d3
+Author: Wei Wen <2605749@sit.singaporetech.edu.sg>
+Date:   Fri Nov 13 23:38:00 2026 +0800
+
+    Complete Lab 8 association, aggregation, composition and LSP
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+commit 6e464691c76098f9a0b2fbeac94cfef3375461b5
+Author: Wei Wen <2605749@sit.singaporetech.edu.sg>
+Date:   Tue Nov 3 19:11:59 2026 +0800
+
+    Add Lab 7 git log
+
+commit 662de485ae39d568c2b232b7eb99523c40fe7c06
+Author: Wei Wen <2605749@sit.singaporetech.edu.sg>
+Date:   Tue Nov 3 19:08:00 2026 +0800
+
+    Complete Lab 7 inheritance, abstraction and interfaces
+
+commit 782886b5c9810e9964c8384584517e68a301f095
+Author: Wei Wen <2605749@sit.singaporetech.edu.sg>
+Date:   Tue Nov 3 16:54:43 2026 +0800
+
+    Week 9 Lab Folder
+
+commit aa390b0774ebe4d297030e04cd0bd3bd85bb5997
+Author: Wei Wen <2605749@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 17:59:28 2026 +0800
+
+    Added screenshots, UML diagram and updated inventory
+
+commit 088e7a7d935ce7d4b6c29dc20bdef24b4c6b4241
+Author: Wei Wen <2605749@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 17:28:23 2026 +0800
+
+    Completed OOP inventory management system
