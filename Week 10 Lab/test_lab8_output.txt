@@ -1,0 +1,72 @@
+
+=== test_association_supplier_and_product ===
+Supplier ID: S001 | Name: TechSupply Co | Email: sales@techsupply.com
+Supplier ID: S001 | Name: TechSupply Co | Email: sales@techsupply.com
+After del supplier:
+Supplier ID: S001 | Name: TechSupply Co | Email: sales@techsupply.com
+Supplier ID: S001 | Name: TechSupply Co | Email: sales@techsupply.com
+PASS
+
+=== test_aggregation_inventory_and_product ===
+Inventory A:
+-------------------
+ID: P200 | Name: Keyboard | Price: $80.00 | Stock: 10
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Physical | Weight: 1.20 kg | Shipping: $7.40
+-------------------
+ID: P200 | Name: Keyboard | Price: $80.00 | Stock: 15
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Physical | Weight: 1.20 kg | Shipping: $7.40
+Inventory A is empty.
+Inventory B:
+-------------------
+ID: P200 | Name: Keyboard | Price: $80.00 | Stock: 15
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Physical | Weight: 1.20 kg | Shipping: $7.40
+-------------------
+PASS
+
+=== test_composition_order_and_order_line ===
+Order O001
+-------------------
+Guitar x 2 @ $350.00 = $700.00
+Operating System x 1 @ $199.00 = $199.00
+-------------------
+Total: $899.00
+Order O002
+-------------------
+Guitar x 1 @ $350.00 = $350.00
+-------------------
+Total: $350.00
+OrderLine ids: 2148031105072 vs 2148031041680
+Product ids:   2148031040080 vs 2148031040080
+Order O001
+-------------------
+Guitar x 2 @ $350.00 = $700.00
+-------------------
+Total: $700.00
+PASS
+
+=== test_lsp_substitutability ===
+ID: P100 | Name: Guitar | Price: $350.00 | Stock: 5
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Physical | Weight: 3.50 kg | Shipping: $12.00
+'Guitar' requires physical shipping.
+ID: D100 | Name: Operating System | Price: $199.00 | Stock: 100
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Digital | Download Size: 4500.00 MB
+'Operating System' is delivered digitally via a download link.
+PASS
+
+=== test_polymorphism_through_inventory ===
+ID: P100 | Name: Guitar | Price: $350.00 | Stock: 5
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Physical | Weight: 3.50 kg | Shipping: $12.00
+'Guitar' requires physical shipping.
+ID: D100 | Name: Operating System | Price: $199.00 | Stock: 100
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Digital | Download Size: 4500.00 MB
+'Operating System' is delivered digitally via a download link.
+PASS
+
+5/5 tests passed.

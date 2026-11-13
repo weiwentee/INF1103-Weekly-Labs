@@ -1,0 +1,52 @@
+
+=== test_physical_product_stores_and_displays_weight ===
+ID: P100 | Name: Guitar | Price: $350.00 | Stock: 5
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Physical | Weight: 3.50 kg | Shipping: $12.00
+PASS
+
+=== test_digital_product_stores_and_displays_download_size ===
+ID: D100 | Name: Operating System | Price: $199.00 | Stock: 100
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Digital | Download Size: 4500.00 MB
+PASS
+
+=== test_both_subclasses_implement_fulfilment_info ===
+'Guitar' requires physical shipping.
+'Operating System' is delivered digitally via a download link.
+PASS
+
+=== test_product_cannot_be_instantiated ===
+TypeError raised as expected: Can't instantiate abstract class Product without an implementation for abstract method 'get_fulfilment_info'
+PASS
+
+=== test_physical_products_calculate_shipping_by_weight ===
+0.5 kg -> $6.00
+2.0 kg -> $9.00
+10.0 kg -> $25.00
+PASS
+
+=== test_digital_products_are_not_shippable ===
+PASS
+
+=== test_inventory_operations_still_work ===
+Main Inventory:
+-------------------
+ID: P100 | Name: Guitar | Price: $350.00 | Stock: 8
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Physical | Weight: 3.50 kg | Shipping: $12.00
+ID: D100 | Name: Operating System | Price: $199.00 | Stock: 100
+    Supplier: TechSupply Co (sales@techsupply.com)
+    Type: Digital | Download Size: 4500.00 MB
+-------------------
+PASS
+
+=== test_json_save_and_load_preserves_types_and_supplier ===
+Saving inventory...
+Inventory saved successfully to C:\Users\WEIWEN~1\AppData\Local\Temp\tmpyzlyrkc6\test_inventory.json.
+
+C:\Users\WEIWEN~1\AppData\Local\Temp\tmpyzlyrkc6\test_inventory.json found.
+Inventory loaded successfully.
+PASS
+
+8/8 tests passed.
